@@ -1,11 +1,13 @@
   
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import random
 
 app = Flask(__name__)
 
 @app.route('/get_stats', methods=['POST'])
 def get_stats():
+    data1 = str(request.get_json()["species"])
+    data2 = str(request.get_json()["class"])
     stats={"Combat" : 5, "Biotic" : 5, "Tech" : 5}
     if data1 == "Turian":
         stats.update({"Combat": stats["Combat"]+1}, {"Biotic": stats["Biotic"]-2}, {"Tech": stats["Tech"]+1})
@@ -15,9 +17,9 @@ def get_stats():
         stats.update({"Biotic": stats["Biotic"]+3}, {"Tech": stats["Tech"]-3})
     if data2 == "Adept":
         stats.update({"Biotic": stats["Biotic"]+4})
-    elif data2 == "Engineer"
+    elif data2 == "Engineer":
         stats.update({"Tech": stats["Tech"]+4})
-    elif data2 == "Sentinel"
+    elif data2 == "Sentinel":
         stats.update({"Biotic": stats["Biotic"]+2}, {"Tech": stats["Tech"]+2})
     elif data2 == "Soldier":
         stats.update({"Combat": stats["Combat"]+4})

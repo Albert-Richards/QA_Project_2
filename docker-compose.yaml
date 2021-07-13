@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  server:
+    container_name: project_2_server
+    image: arichards98/project_2_server
+    build: ./server
+    # environment:
+    #   DATABASE_URI: 'mysql+pymysql://root:r00t@35.246.118.98:3306/animal_noises'
+    ports:
+    - published: 5000
+      target: 5000 
+        
+  species_api:
+    container_name: species_api
+    image: arichards98/species_api
+    build: ./species_api
+  
+  class_api:
+    container_name: class_api
+    image: arichards98/class_api
+    build: ./class_api
+  
+  stats_api:
+    container_name: stats_api
+    image: arichards98/stats_api
+    build: ./stats_api
