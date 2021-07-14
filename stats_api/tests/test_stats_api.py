@@ -15,4 +15,5 @@ class TestStatsApi(TestBase):
         for i in range(len(species)):
             for j in range(len(classes)):
                 response = self.client.post(url_for('get_stats'), json= {"species":species[i], "class":classes[j]})
+                self.assertEqual(response.status_code, 200)
                 self.assertEqual(response.json["Combat"] + response.json["Biotic"] + response.json["Tech"], 19)
