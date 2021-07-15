@@ -5,7 +5,7 @@ services:
     image: arichards98/project_2_server
     build: ./server
     environment:
-      DATABASE_URI: ${{DATABASE_URI}}
+      DATABASE_URI: ${DATABASE_URI}
     ports:
     - published: 5000
       target: 5000 
