@@ -9,32 +9,34 @@ def get_stats():
     data1 = str(request.get_json()["species"])
     data2 = str(request.get_json()["class"])
     stats={"Combat" : 5, "Biotic" : 5, "Tech" : 5}
-    if data1 == "Turian":
-        stats.update({"Combat": stats["Combat"]+1}) 
-        stats.update({"Biotic": stats["Biotic"]-2})
-        stats.update({"Tech": stats["Tech"]+1})
-    elif data1 == "Salarian":
-        stats.update({"Combat": stats["Combat"]-3})
-        stats.update({"Biotic": stats["Biotic"]+1})
-        stats.update({"Tech": stats["Tech"]+2})
-    elif data1 == "Asari":
-        stats.update({"Biotic": stats["Biotic"]+3})
+    if data1 == "Quarian": 
+        stats.update({"Biotic": stats["Biotic"]-3})
+        stats.update({"Tech": stats["Tech"]+3})
+    elif data1 == "Krogan":
+        stats.update({"Combat": stats["Combat"]+3})
         stats.update({"Tech": stats["Tech"]-3})
-    if data2 == "Adept":
-        stats.update({"Biotic": stats["Biotic"]+4})
-    elif data2 == "Engineer":
-        stats.update({"Tech": stats["Tech"]+4})
-    elif data2 == "Sentinel":
-        stats.update({"Biotic": stats["Biotic"]+2})
+    elif data1 == "Drell":
+        stats.update({"Combat": stats["Combat"]-2})
+        stats.update({"Biotic": stats["Biotic"]+1})
+        stats.update({"Tech": stats["Tech"]+1})
+    if data2 == "Bastion":
+        stats.update({"Biotic": stats["Biotic"]+6})
         stats.update({"Tech": stats["Tech"]+2})
-    elif data2 == "Soldier":
-        stats.update({"Combat": stats["Combat"]+4})
-    elif data2 == "Vanguard":
+    elif data2 == "Operative":
+        stats.update({"Tech": stats["Tech"]+6})
         stats.update({"Combat": stats["Combat"]+2})
-        stats.update({"Biotic": stats["Biotic"]+2})
-    elif data2 == "Infiltrator":
-        stats.update({"Combat": stats["Combat"]+2}) 
+    elif data2 == "Nemesis":
+        stats.update({"Biotic": stats["Biotic"]+6})
+        stats.update({"Combat": stats["Combat"]+2})
+    elif data2 == "Commando":
+        stats.update({"Combat": stats["Combat"]+6})
         stats.update({"Tech": stats["Tech"]+2})
+    elif data2 == "Shock Trooper":
+        stats.update({"Combat": stats["Combat"]+6})
+        stats.update({"Biotic": stats["Biotic"]+2})
+    elif data2 == "Medic":
+        stats.update({"Biotic": stats["Biotic"]+2}) 
+        stats.update({"Tech": stats["Tech"]+6})
     return jsonify(stats)
 
 if __name__ == "__main__":
