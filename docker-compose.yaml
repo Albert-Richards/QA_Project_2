@@ -4,6 +4,8 @@ services:
     container_name: project_2_server
     image: arichards98/project_2_server
     build: ./server
+    deploy:
+      replicas: 3
     environment:
       DATABASE_URI: ${DATABASE_URI}
     ports:
@@ -14,19 +16,27 @@ services:
     container_name: species_api
     image: arichards98/species_api:old
     build: ./species_api
+    deploy:
+      replicas: 3
   
   class_api:
     container_name: class_api
     image: arichards98/class_api:old
     build: ./class_api
+    deploy:
+      replicas: 3
   
   stats_api:
     container_name: stats_api
     image: arichards98/stats_api:old
     build: ./stats_api
+    deploy:
+      replicas: 3
 
   nginx:
     image: nginx:latest
+    deploy:
+      replicas: 3
     ports:
     - target: 80
       published: 80
