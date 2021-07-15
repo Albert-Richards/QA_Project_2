@@ -12,17 +12,17 @@ services:
         
   species_api:
     container_name: species_api
-    image: arichards98/species_api
+    image: arichards98/species_api:old
     build: ./species_api
   
   class_api:
     container_name: class_api
-    image: arichards98/class_api
+    image: arichards98/class_api:old
     build: ./class_api
   
   stats_api:
     container_name: stats_api
-    image: arichards98/stats_api
+    image: arichards98/stats_api:old
     build: ./stats_api
 
   nginx:
