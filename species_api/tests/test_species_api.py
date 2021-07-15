@@ -12,4 +12,4 @@ class TestSpeciesApi(TestBase):
         for num in range(15):
             response = self.client.get(url_for('get_species'))
             self.assertEqual(response.status_code, 200)
-            self.assertIn(response.data.decode("utf-8"), ['Human', 'Salarian', 'Turian', 'Asari'])
+            self.assertIn(response.data.decode("utf-8"), ['Krogan', 'Quarian', 'Batarian', 'Drell'])
