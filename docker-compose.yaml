@@ -5,7 +5,7 @@ services:
     image: arichards98/project_2_server
     build: ./server
     environment:
-      DATABASE_URI: 'mysql+pymysql://root:r00t!@34.142.39.96:3306/ME_db'
+      DATABASE_URI: ${{DATABASE_URI}}
     ports:
     - published: 5000
       target: 5000 
