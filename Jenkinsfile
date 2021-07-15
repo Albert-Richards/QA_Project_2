@@ -14,7 +14,10 @@ pipeline{
                 sh "python3 -m venv venv"
                 sh ". ./venv/bin/activate"
                 sh "pip3 install -r test_requirements.txt"
-                sh "python3 -m pytest --cov . --cov-report html"
+                sh "python3 -m pytest class_api --cov=app --cov-report html"
+                sh "python3 -m pytest species_api --cov=app --cov-report html"
+                sh "python3 -m pytest stats_api --cov=app --cov-report html"
+                sh "python3 -m pytest server --cov=app --cov-report html"
             }
         }
         stage('Deploy application'){
