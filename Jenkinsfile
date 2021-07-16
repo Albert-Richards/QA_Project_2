@@ -23,9 +23,9 @@ pipeline{
         stage('Push images'){
             steps{
                 sh "docker push arichards98/project_2_server"
-                sh "docker push arichards98/species_api:new"
-                sh "docker push arichards98/class_api:new"
-                sh "docker push arichards98/stats_api:new"
+                sh "docker push arichards98/species_api:old"
+                sh "docker push arichards98/class_api:old"
+                sh "docker push arichards98/stats_api:old"
             }
         }
         stage('Deploy application'){
