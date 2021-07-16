@@ -22,6 +22,7 @@ pipeline{
         }
         stage('Push images'){
             steps{
+                sh "docker login"
                 sh "docker push arichards98/project_2_server"
                 sh "docker push arichards98/species_api:old"
                 sh "docker push arichards98/class_api:old"
@@ -30,7 +31,7 @@ pipeline{
         }
         stage('Deploy application'){
             steps{
-                sh "ssh Albert@manager << EOF docker stack deploy --compose-file docker-compose.yaml project_stack EOF"
+                sh "ssh Albert@manager docker stack deploy --compose-file docker-compose.yaml project_stack"
             }
         }
     }
