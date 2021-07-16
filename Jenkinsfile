@@ -30,9 +30,7 @@ pipeline{
         }
         stage('Deploy application'){
             steps{
-                sh "ssh Albert@manager << EOF
-                docker stack deploy --compose-file docker-compose.yaml project_stack
-                EOF"
+                sh "ssh Albert@manager << EOF docker stack deploy --compose-file docker-compose.yaml project_stack EOF"
             }
         }
     }
