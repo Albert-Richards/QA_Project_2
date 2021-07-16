@@ -31,7 +31,8 @@ pipeline{
         }
         stage('Deploy application'){
             steps{
-                sh "ssh manager scp docker-compose.yaml jenkins@manager: && docker stack deploy --compose-file docker-compose.yaml project_stack"
+                sh "scp docker-compose.yaml jenkins@manager: "
+                sh "ssh manager docker stack deploy --compose-file docker-compose.yaml project_stack"
             }
         }
     }
