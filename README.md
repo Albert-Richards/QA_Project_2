@@ -63,6 +63,8 @@ Full risk assessment available [here](https://onedrive.live.com/edit.aspx?resid=
 
 ### Entity Relation Diagram
 
+![erd](./images/Untitled Diagram.drawio)
+
 ### Project Pipeline
 
 ### Jenkins Configuration
