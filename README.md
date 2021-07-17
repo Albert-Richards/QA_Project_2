@@ -15,7 +15,7 @@
     * [VM configuration](#VM-configuration)
 * [Developement and Deployment](#developement-and-deployment)
     * [Test Reports](#test-report)
-    * [Frontend](#frontend)
+    * [Front-end](#front-end)
 
 ## Introduction
 
@@ -45,12 +45,47 @@ A screenshot of my Trello board:
 
 ![trello](./images/trello-board.png)
 
+Trello board can be accessed [here](https://trello.com/b/CTxgd71J/qa-project-2)
+
 ### Risk Assessment
 
 Screenshot of my risk assessment:
 
-![risk](./images/risk_assessment.png)
+![risk](./images/risk-assessment.png)
 
-Full risk assessment available [here]().
+Full risk assessment available [here](https://onedrive.live.com/edit.aspx?resid=2999F3BD7781D9A6!127&ithint=file%2cxlsx&wdOrigin=OFFICECOM-WEB.START.MRU).
 
 ## Infrastructure
+
+### The Four Services
+
+
+
+### Entity Relation Diagram
+
+### Project Pipeline
+
+### Jenkins Configuration
+
+### VM  Configuration
+
+## Developement and Deployment
+
+### Test Reports
+
+Each of the four core services were tested with results listed below:
+
+- Service 1 (server):   Coverage: 95%   Line(s) missing: 29
+- Service 2 (class_api):    Coverage: 86%   Line(s) missing: 12
+- Service 3 (species_api):    Coverage: 86%   Line(s) missing: 11
+- Service 4 (stats_api):    Coverage: 97%   Line(s) missing: 40
+
+This gives us a total coverage in excess of 90% and in each case the only line that was missing was the line below:
+> app.run(host="0.0.0.0", port=5000, debug=True)
+This was because the preceding 'if __name__ == "__main__":' statement is evaluated to false in a test environment, hence the follwong lines were not tested.
+
+### Front-end
+
+The web-page can be navigated to through port 80 on either manager or worker nodes, the information is displayed as below. The page is rendered with HTML Jinja 2 templates.
+
+![frontend](./images/frontend.png)
