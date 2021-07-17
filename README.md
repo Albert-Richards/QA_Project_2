@@ -8,7 +8,7 @@
     * [Kanban Board](#kanban-board)
     * [Risk Assessment](#risk-assessment)
 * [Infrastructure](#infrastructure)
-    * [The Four Services](#the-four-services)
+    * [Service Configuration](#service-configuration)
     * [Entity Relation Diagram](#entity-relation-diagram)
     * [Project Pipeline](#project-pipeline)
     * [Jenkins configuration](#jenkins-configuration)
@@ -57,13 +57,20 @@ Full risk assessment available [here](https://onedrive.live.com/edit.aspx?resid=
 
 ## Infrastructure
 
-### The Four Services
+### Service Configuration
 
+The app conists of a total of five services; the 4 core services defined in the project specification and an nginx proxy server and they interact with each other as shown in the diagram below:
+
+![backend](./images/Backend.png)
+
+The core service (service 1) sends get requests to services 2 and 3 and a post request to service 4. Service 1 then sends data to be stored in an SQL database and finally, the nginx service acts as a proxy server that allows users to access the frontend through port 80. 
 
 
 ### Entity Relation Diagram
 
-![erd](./images/Untitled Diagram.drawio)
+For this project only one table was required with no relationships. The entity relation diagram ended up looking like this:
+
+![erd](./images/erd.png)
 
 ### Project Pipeline
 
