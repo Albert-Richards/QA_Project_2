@@ -20,6 +20,15 @@ pipeline{
                 sh "python3 -m pytest server --cov=app --cov-report=term-missing"
             }
         }
+        stage('Push images'){
+            steps{
+                sh "docker login"
+                sh "docker push arichards98/project_2_server"
+                sh "docker push arichards98/species_api:old"
+                sh "docker push arichards98/class_api:old"
+                sh "docker push arichards98/stats_api:old"
+            }
+        }
         stage('Deploy application'){
             steps{
                 sh "docker stack deploy --compose-file docker-compose.yaml project_stack"
