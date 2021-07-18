@@ -81,8 +81,6 @@ Jenkins allowed for the project to be deployed through a continous integration a
 > Test the four core services and display a coverage report along with any lines that were missing. Results of the tests can be found [here](#test-reports)
 - Push stage
 > Pushes the images built in stage 1 to Dockerhub
-- Initialisation stage
-> Initialises the swarm on the manager and worker nodes using ansible
 - Deploy stage
 > Deploys the application as a stack on the manager node
 
