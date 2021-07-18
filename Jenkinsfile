@@ -27,6 +27,7 @@ pipeline{
                 sh "docker push arichards98/species_api:new"
                 sh "docker push arichards98/class_api:new"
                 sh "docker push arichards98/stats_api:new"
+
             }
         }
         stage('Deploy application'){
