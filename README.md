@@ -105,7 +105,7 @@ The final configuration consisted of only 2 VMs with the prime VM also being the
 
 Bringing everything together, the entire project pipeline is shown below:
 
-![pipeline](.images/pipeline.png)
+![pipeline](./images/pipeline.png)
 
 ## Developement and Deployment
 
@@ -120,6 +120,7 @@ Each of the four core services were tested with results listed below:
 
 This gives us a total coverage in excess of 90% and in each case the only line that was missing was the line below:
 > app.run(host="0.0.0.0", port=5000, debug=True)
+
 This was because the preceding 'if __name__ == "__main__":' statement is evaluated to false in a test environment, hence the follwong lines were not tested.
 
 ### Front-end
