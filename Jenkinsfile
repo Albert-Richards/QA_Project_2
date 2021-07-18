@@ -29,6 +29,12 @@ pipeline{
                 sh "docker push arichards98/stats_api:old"
             }
         }
+        stage('Configure Swarm'){
+            steps{
+                sh "cd docker-init"
+                sh "ansible-playbook -i inventory.yaml playbook.yaml"
+            }
+        }
         stage('Deploy application'){
             steps{
                 sh "docker stack deploy --compose-file docker-compose.yaml project_stack"

@@ -11,10 +11,10 @@
     * [Service Configuration](#service-configuration)
     * [Entity Relation Diagram](#entity-relation-diagram)
     * [Project Pipeline](#project-pipeline)
-    * [Jenkins configuration](#jenkins-configuration)
+    * [Jenkins](#jenkins)
     * [VM configuration](#VM-configuration)
 * [Developement and Deployment](#developement-and-deployment)
-    * [Test Reports](#test-report)
+    * [Test Reports](#test-reports)
     * [Front-end](#front-end)
 
 ## Introduction
@@ -72,11 +72,38 @@ For this project only one table was required with no relationships. The entity r
 
 ![erd](./images/erd.png)
 
-### Project Pipeline
+### Jenkins
 
-### Jenkins Configuration
+Jenkins allowed for the project to be deployed through a continous integration and deployment pipeline. The project was built as a Jenkins pipeline project with a github webhook and a Jenkinsfile which consisted of five stages:
+- Build stage
+> Builds all the images that are needed for the app to run, namely the 4 core services and the nginx proxy server
+- Test stage
+> Test the four core services and display a coverage report along with any lines that were missing. Results of the tests can be found [here](#test-reports)
+- Push stage
+> Pushes the images built in stage 1 to Dockerhub
+- Initialisation stage
+> Initialises the swarm on the manager and worker nodes using ansible
+- Deploy stage
+> Deploys the application as a stack on the manager node
 
 ### VM  Configuration
+
+Originally I proposed 3 VMs to run this project in the following configuration:
+- 'Prime' VM: 
+> - Uses ansible to install docker on the manager and worker machines and configures the swarm.
+> - Jenkins then deploys app on the manager node. 
+- Manager VM:
+> Acts as the manager of the swarm.
+- Worker VM:
+> Worker node in the swarm.
+
+The final configuration consisted of only 2 VMs with the prime VM also being the manager of the swarm. This was due to time constraints and also the cost of running 3 separate VMs simultaneously. A diagram of the two different configurations can be seen below:
+
+![vms](./images/vm-config.png)
+
+### Project Pipeline
+
+
 
 ## Developement and Deployment
 
