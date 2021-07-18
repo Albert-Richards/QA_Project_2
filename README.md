@@ -86,7 +86,7 @@ Jenkins allowed for the project to be deployed through a continous integration a
 
 (Docker was installed on the relevant machines and swarm initialised with ansible before Jenkins deployment)
 
-### VM  Configuration
+### VM Configuration
 
 Originally I proposed 3 VMs to run this project in the following configuration:
 - 'Prime' VM: 
