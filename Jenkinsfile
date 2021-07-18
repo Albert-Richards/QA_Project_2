@@ -31,7 +31,7 @@ pipeline{
         }
         stage('Configure Swarm'){
             steps{
-                sh "cd docker-init"
+                sh "cd swarm-init"
                 sh "ansible-playbook -i inventory.yaml playbook.yaml"
             }
         }

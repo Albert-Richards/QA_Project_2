@@ -1,0 +1,10 @@
+all:
+  vars: 
+    ansible_python_interpreter: /usr/bin/python3
+  children:
+    managers:
+      hosts:
+        machine-1:
+    workers:
+      hosts:
+        worker:
