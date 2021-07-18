@@ -1,3 +1,4 @@
+  
 from flask import url_for
 from flask_testing import TestCase
 
@@ -12,4 +13,4 @@ class TestClassApi(TestBase):
         for num in range(75):
             response = self.client.get(url_for('get_class'))
             self.assertEqual(response.status_code, 200)
-            self.assertIn(response.data.decode("utf-8"),['Adept', 'Engineer', 'Soldier', 'Vanguard', 'Sentinel', 'Infiltrator'])
+            self.assertIn(response.data.decode("utf-8"),['Nemesis', 'Bastion', 'Commando', 'Shock Trooper', 'Operative', 'Medic'])
