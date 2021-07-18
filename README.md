@@ -12,7 +12,7 @@
     * [Entity Relation Diagram](#entity-relation-diagram)
     * [Project Pipeline](#project-pipeline)
     * [Jenkins](#jenkins)
-    * [VM configuration](#VM-configuration)
+    * [VM configuration](#vm-configuration)
 * [Developement and Deployment](#developement-and-deployment)
     * [Test Reports](#test-reports)
     * [Front-end](#front-end)
@@ -74,7 +74,7 @@ For this project only one table was required with no relationships. The entity r
 
 ### Jenkins
 
-Jenkins allowed for the project to be deployed through a continous integration and deployment pipeline. The project was built as a Jenkins pipeline project with a github webhook and a Jenkinsfile which consisted of five stages:
+Jenkins allowed for the project to be deployed through a continous integration and deployment pipeline. The project was built as a Jenkins pipeline project with a github webhook and a Jenkinsfile which consisted of four stages:
 - Build stage
 > Builds all the images that are needed for the app to run, namely the 4 core services and the nginx proxy server
 - Test stage
@@ -103,7 +103,9 @@ The final configuration consisted of only 2 VMs with the prime VM also being the
 
 ### Project Pipeline
 
+Bringing everything together, the entire project pipeline is shown below:
 
+![pipeline](.images/pipeline.png)
 
 ## Developement and Deployment
 
