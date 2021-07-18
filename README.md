@@ -84,6 +84,8 @@ Jenkins allowed for the project to be deployed through a continous integration a
 - Deploy stage
 > Deploys the application as a stack on the manager node
 
+(Docker was installed on the relevant machines and swarm initialised with ansible before Jenkins deployment)
+
 ### VM  Configuration
 
 Originally I proposed 3 VMs to run this project in the following configuration:
